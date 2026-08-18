@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THE DEMO NEWS — Tech, decoded daily</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap masthead">
+      <div>
+        <div class="logo"><span class="dot"></span>THE DEMO NEWS</div>
+        <div class="tagline">Tech, decoded daily</div>
+      </div>
+    </div>
+    <div class="ticker">
+      <div class="ticker-track" id="ticker-track"><!-- filled by script.js --></div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="section-label">Latest dispatches</div>
+    <section class="feed" id="feed"><!-- articles injected by script.js --></section>
+  </main>
+
+  <footer class="site-footer wrap">
+    <span>© 2026 THE DEMO NEWS — a demo project, all stories are fictional.</span>
+    <span>Built for a hackathon.</span>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
