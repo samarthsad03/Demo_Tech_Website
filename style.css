@@ -188,7 +188,7 @@ button:focus-visible {
   padding-bottom: 60px;
 }
 
-.card {
+.story-block {
   background: var(--surface);
   border: 1px solid var(--hairline);
   border-radius: 4px;
@@ -199,28 +199,21 @@ button:focus-visible {
   transition: border-color 0.15s ease, transform 0.15s ease;
 }
 
-.card:hover {
+.story-block:hover {
   border-color: var(--signal);
   transform: translateY(-2px);
 }
 
-.card.featured {
+.story-block.featured-story {
   grid-column: 1 / -1;
-  flex-direction: row;
-  align-items: stretch;
-  gap: 28px;
   padding: 28px;
 }
 
-.card.featured .card-body {
-  flex: 1;
-}
-
-.card.featured .card-title {
+.story-block.featured-story .story-headline {
   font-size: 30px;
 }
 
-.card-eyebrow {
+.story-category {
   font-family: var(--font-mono);
   font-size: 11px;
   text-transform: uppercase;
@@ -228,7 +221,7 @@ button:focus-visible {
   color: var(--signal);
 }
 
-.card-title {
+.story-headline {
   font-family: var(--font-display);
   font-size: 19px;
   font-weight: 600;
@@ -236,14 +229,14 @@ button:focus-visible {
   color: var(--paper);
 }
 
-.card-summary {
+.story-description {
   color: var(--dim);
   font-size: 15px;
   line-height: 1.55;
   flex: 1;
 }
 
-.card-meta {
+.story-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -255,26 +248,18 @@ button:focus-visible {
   margin-top: auto;
 }
 
-.card-meta .read-link {
+.story-info .story-link {
   color: var(--wire);
+  text-decoration: none;
 }
 
-.card-meta .read-link::after {
+.story-info .story-link::after {
   content: " →";
-}
-
-.card-body {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
 }
 
 @media (max-width: 900px) {
   .feed {
     grid-template-columns: repeat(2, 1fr);
-  }
-  .card.featured {
-    flex-direction: column;
   }
 }
 

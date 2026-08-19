@@ -38,31 +38,29 @@ function renderFeed() {
   const [first, ...rest] = ARTICLES;
 
   const featuredCard = `
-    <a class="card featured" href="${articleUrl(first)}">
-      <div class="card-body">
-        <span class="card-eyebrow">${first.category}</span>
-        <h2 class="card-title">${first.title}</h2>
-        <p class="card-summary">${first.summary}</p>
-        <div class="card-meta">
-          <span>${formatDate(first.date)} · ${first.readTime}</span>
-          <span class="read-link">Read story</span>
-        </div>
+    <div class="story-block featured-story">
+      <div class="story-category">${first.category}</div>
+      <div class="story-headline">${first.title}</div>
+      <div class="story-description">${first.summary}</div>
+      <div class="story-info">
+        <span class="story-published">${formatDate(first.date)} · ${first.readTime}</span>
+        <a class="story-link" href="${articleUrl(first)}">Open story</a>
       </div>
-    </a>
+    </div>
   `;
 
   const otherCards = rest
     .map(
       (a) => `
-    <a class="card" href="${articleUrl(a)}">
-      <span class="card-eyebrow">${a.category}</span>
-      <h3 class="card-title">${a.title}</h3>
-      <p class="card-summary">${a.summary}</p>
-      <div class="card-meta">
-        <span>${formatDate(a.date)}</span>
-        <span class="read-link">Read</span>
+    <div class="story-block">
+      <div class="story-category">${a.category}</div>
+      <div class="story-headline">${a.title}</div>
+      <div class="story-description">${a.summary}</div>
+      <div class="story-info">
+        <span class="story-published">${formatDate(a.date)}</span>
+        <a class="story-link" href="${articleUrl(a)}">Open story</a>
       </div>
-    </a>
+    </div>
   `
     )
     .join("");
