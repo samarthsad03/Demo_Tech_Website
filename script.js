@@ -21,7 +21,7 @@ function articleUrl(article) {
 /* ---------------- Homepage feed ---------------- */
 
 function renderTicker() {
-  const track = document.getElementById("ticker-track");
+  const track = document.getElementById("market-strip");
   if (!track) return;
 
   const items = ARTICLES.map(
@@ -32,7 +32,7 @@ function renderTicker() {
 }
 
 function renderFeed() {
-  const feed = document.getElementById("feed");
+  const feed = document.getElementById("story-grid");
   if (!feed) return;
 
   const [first, ...rest] = ARTICLES;
@@ -71,7 +71,7 @@ function renderFeed() {
 /* ---------------- Article page ---------------- */
 
 function renderArticle() {
-  const container = document.getElementById("article-content");
+  const container = document.getElementById("story-shell");
   if (!container) return;
 
   const params = new URLSearchParams(window.location.search);

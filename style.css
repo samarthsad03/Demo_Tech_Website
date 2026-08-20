@@ -134,13 +134,13 @@ button:focus-visible {
   background: var(--surface);
 }
 
-.ticker-track {
+.market-strip {
   display: inline-flex;
   animation: scroll-ticker 38s linear infinite;
   padding: 8px 0;
 }
 
-.ticker-track span {
+.market-strip span {
   font-family: var(--font-mono);
   font-size: 12px;
   color: var(--wire);
@@ -181,7 +181,7 @@ button:focus-visible {
   background: var(--hairline);
 }
 
-.feed {
+.story-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
