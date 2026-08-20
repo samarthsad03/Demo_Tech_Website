@@ -38,13 +38,13 @@ function renderFeed() {
   const [first, ...rest] = ARTICLES;
 
   const featuredCard = `
-    <article class="post-card spotlight">
-      <div class="section-tag">${first.category}</div>
-      <div class="post-title">${first.title}</div>
-      <div class="post-excerpt">${first.summary}</div>
-      <div class="post-footer">
-        <span class="time-posted">${formatDate(first.date)} · ${first.readTime}</span>
-        <a class="view-link" href="${articleUrl(first)}">View story</a>
+    <article class="brief-tile top-brief">
+      <div class="kicker">${first.category}</div>
+      <div class="brief-heading">${first.title}</div>
+      <div class="brief-summary">${first.summary}</div>
+      <div class="brief-meta">
+        <span class="meta-time">${formatDate(first.date)} · ${first.readTime}</span>
+        <a class="meta-link" href="${articleUrl(first)}">Continue reading</a>
       </div>
     </article>
   `;
@@ -52,13 +52,13 @@ function renderFeed() {
   const otherCards = rest
     .map(
       (a) => `
-    <article class="post-card">
-      <div class="section-tag">${a.category}</div>
-      <div class="post-title">${a.title}</div>
-      <div class="post-excerpt">${a.summary}</div>
-      <div class="post-footer">
-        <span class="time-posted">${formatDate(a.date)}</span>
-        <a class="view-link" href="${articleUrl(a)}">View story</a>
+    <article class="brief-tile">
+      <div class="kicker">${a.category}</div>
+      <div class="brief-heading">${a.title}</div>
+      <div class="brief-summary">${a.summary}</div>
+      <div class="brief-meta">
+        <span class="meta-time">${formatDate(a.date)}</span>
+        <a class="meta-link" href="${articleUrl(a)}">Continue reading</a>
       </div>
     </article>
   `

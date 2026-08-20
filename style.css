@@ -188,7 +188,7 @@ button:focus-visible {
   padding-bottom: 60px;
 }
 
-.post-card {
+.brief-tile {
   background: var(--surface);
   border: 1px solid var(--hairline);
   border-radius: 4px;
@@ -199,21 +199,21 @@ button:focus-visible {
   transition: border-color 0.15s ease, transform 0.15s ease;
 }
 
-.post-card:hover {
+.brief-tile:hover {
   border-color: var(--signal);
   transform: translateY(-2px);
 }
 
-.post-card.spotlight {
+.brief-tile.top-brief {
   grid-column: 1 / -1;
   padding: 28px;
 }
 
-.post-card.spotlight .post-title {
+.brief-tile.top-brief .brief-heading {
   font-size: 30px;
 }
 
-.section-tag {
+.kicker {
   font-family: var(--font-mono);
   font-size: 11px;
   text-transform: uppercase;
@@ -221,7 +221,7 @@ button:focus-visible {
   color: var(--signal);
 }
 
-.post-title {
+.brief-heading {
   font-family: var(--font-display);
   font-size: 19px;
   font-weight: 600;
@@ -229,14 +229,14 @@ button:focus-visible {
   color: var(--paper);
 }
 
-.post-excerpt {
+.brief-summary {
   color: var(--dim);
   font-size: 15px;
   line-height: 1.55;
   flex: 1;
 }
 
-.post-footer {
+.brief-meta {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -248,23 +248,23 @@ button:focus-visible {
   margin-top: auto;
 }
 
-.post-footer .view-link {
+.brief-meta .meta-link {
   color: var(--wire);
   text-decoration: none;
 }
 
-.post-footer .view-link::after {
+.brief-meta .meta-link::after {
   content: " →";
 }
 
 @media (max-width: 900px) {
-  .feed {
+  .story-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 600px) {
-  .feed {
+  .story-grid {
     grid-template-columns: 1fr;
   }
   .masthead .logo {
