@@ -18,6 +18,41 @@ function articleUrl(article) {
   return `article.html?id=${article.id}`;
 }
 
+/* ---------------- Cover art ----------------
+   No photo library in this static demo, so each article gets a real stock
+   photo from LoremFlickr, matched to the article's actual subject via
+   keyword tags (rather than a random or category-only photo), and locked
+   to the article id so the same article always gets the same photo. */
+
+const ARTICLE_IMAGE_KEYWORDS = {
+  1: "microchip,circuit-board", // coin-sized AI chip
+  2: "moon,spacecraft", // autonomous lunar lander
+  3: "smartphone,security", // deepfake call detection
+  4: "warehouse,robot", // warehouse robots
+  5: "server,datacenter", // data center cooling chip
+  6: "laboratory,microscope", // lab-grown retina tissue
+  7: "quarry,rock", // rock dust carbon capture
+  8: "videogame,controller", // AI game level director
+  9: "mobile-payment,wallet", // digital wallet split payments
+  10: "eyeglasses,technology", // smart glasses
+};
+
+function coverArtHTML(article, sizeClass, width, height) {
+  const keywords = ARTICLE_IMAGE_KEYWORDS[article.id] || "technology,news";
+  const src = `https://loremflickr.com/${width}/${height}/${keywords}?lock=${article.id}`;
+  return `
+    <div class="${sizeClass}">
+      <img
+        src="${src}"
+        alt="${article.title}"
+        width="${width}"
+        height="${height}"
+        loading="lazy"
+      />
+    </div>
+  `;
+}
+
 /* ---------------- Homepage feed ---------------- */
 
 function renderTicker() {
@@ -39,6 +74,7 @@ function renderFeed() {
 
   const featuredCard = `
     <article class="brief-tile top-brief">
+      ${coverArtHTML(first, "brief-media", 900, 386)}
       <div class="kicker">${first.category}</div>
       <div class="brief-heading">${first.title}</div>
       <div class="brief-summary">${first.summary}</div>
@@ -53,6 +89,7 @@ function renderFeed() {
     .map(
       (a) => `
     <article class="brief-tile">
+      ${coverArtHTML(a, "brief-media", 500, 281)}
       <div class="kicker">${a.category}</div>
       <div class="brief-heading">${a.title}</div>
       <div class="brief-summary">${a.summary}</div>
@@ -94,6 +131,7 @@ function renderArticle() {
   const paragraphs = article.body.map((p) => `<p>${p}</p>`).join("");
 
   container.innerHTML = `
+    ${coverArtHTML(article, "article-media", 1600, 533)}
     <div class="article-header">
       <span class="article-eyebrow">${article.category}</span>
       <h1 class="article-title">${article.title}</h1>
